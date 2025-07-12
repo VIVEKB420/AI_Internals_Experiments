@@ -1,7 +1,7 @@
 # AI_Internals_Experiments
 Small experiments exploring AI/ML concepts.
 
-Summarizer Using Hugging Face model.
+**Topic: Summarizer Using Hugging Face model.**
 
 Notes:
 1) Inference means process of generating outputs (predictions, tokens, or text) from a trained Large Language Model (LLM) like GPT, LLaMA, or Mistral.
