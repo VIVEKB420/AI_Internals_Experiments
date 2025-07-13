@@ -1,10 +1,17 @@
 
-import streamlit as st
-import urllib.parse
+from pyngrok import ngrok
 
-st.title("URL Generator")
-base_url = st.text_input("Base URL", "https://example.com/search")
-param = st.text_input("Query parameter (e.g. q)", "chatgpt")
-if st.button("Generate URL"):
-    full_url = f"{base_url}?q={urllib.parse.quote(param)}"
-    st.write("Generated URL:", full_url)
+ngrok.set_auth_token("2zoXs0S0ySTa7VZeomO5h5zyfxU_2hrrDGFb6fPY9sKjScqq4")
+
+# Kill old tunnels if any
+ngrok.kill()
+
+# Create new tunnel to port 8501
+public_url = ngrok.connect(8501)
+print(f"Streamlit app is live at 👉 {public_url}")
+
+# Launch Streamlit in the background
+!streamlit run LLM_Summarizer.py &> /dev/null &
+
+with open("LLM_Summarizer_App_Code.py", "w") as f:
+    f.write(code)
